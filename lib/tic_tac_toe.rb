@@ -106,7 +106,7 @@ def winner(board)
 end
 
 def play(board)
-  while(!over?(board) && ) do
+  while(!over?(board)) do
     turn(board)
   end
 end
