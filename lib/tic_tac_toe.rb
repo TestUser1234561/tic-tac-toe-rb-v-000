@@ -109,4 +109,9 @@ def play(board)
   while(!over?(board)) do
     turn(board)
   end
+  if(draw?(board))
+    
+  else
+    puts "Congratulations #{winner(board)}!"
+  end
 end
