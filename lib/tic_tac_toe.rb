@@ -66,18 +66,6 @@ def current_player(board)
   turns % 2 == 0 ? (return "X") : (return "O")
 end
 
-def turn(board)
-  puts "Please enter 1-9:"
-  input = gets.strip
-  index = input_to_index(input)
-  if valid_move?(board, index)
-    move(board, index, current_player(board))
-    display_board(board)
-  else
-    turn(board)
-  end
-end
-
 def won?(board)
   WIN_COMBINATIONS.each do |combo|
     if(position_taken?(board, combo[0]) && (board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]))
