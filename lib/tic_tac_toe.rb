@@ -35,7 +35,6 @@ def move(board, index, value = "X")
     board[index] = value
     return true
   end
-  return false
 end
 
 def position_taken?(board, index)
