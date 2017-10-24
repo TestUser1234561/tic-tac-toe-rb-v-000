@@ -106,6 +106,7 @@ end
 
 def play(board)
   while(!over?(board)) do
+      puts "Please enter 1-9:"
     turn(board)
   end
   if(draw?(board))
