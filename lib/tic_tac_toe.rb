@@ -9,7 +9,6 @@ WIN_COMBINATIONS = [
   [2, 4, 6]
 ]
 
-
 def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -75,6 +74,33 @@ def turn(board)
     display_board(board)
   else
     turn(board)
+  end
+end
+
+def won?(board)
+  WIN_COMBINATIONS.each do |combo|
+    if(position_taken?(board, combo[0]) && (board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]))
+      return combo
+    end
+  end
+  return false
+end
+
+def full?(board)
+  return !(board.include? " ")
+end
+
+def draw?(board)
+  return (full?(board) && !won?(board))
+end
+
+def over?(board)
+  return (draw?(board) || won?(board))
+end
+
+def winner(board)
+  if(over?(board))
+    return board[won?(board)[0]]
   end
 end
 
